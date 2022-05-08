@@ -9,5 +9,5 @@
 
    - name: i want to run apache2 installed on my node server
      service: 
-      - apt: apache2
-        state: started  
+       - name: apache2
+         state: started  
