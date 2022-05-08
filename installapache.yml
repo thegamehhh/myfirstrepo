@@ -4,7 +4,7 @@
   tasks:
    - name: i want to install apache on my node server
      apt:
-      - name: apache2
+       name: apache2
         state: present
 
    - name: i want to run apache installed on my node server
