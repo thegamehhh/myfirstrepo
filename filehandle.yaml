@@ -4,6 +4,5 @@
   tasks:
   - name: i will create a file
     file:
-     path: /home/ansible   
-     name: testingfile
+     name: /home/ansible/testingfile
      state: touch
