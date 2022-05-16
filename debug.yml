@@ -9,3 +9,15 @@
   - name: i want that result to show
     debug:
      msg: "{{myvariable}}"
+
+  - name: i want to install git 
+    apt:
+     name: git
+     state: present
+    when: stderr ==""
+
+  - name: i want to install tree
+    apt:
+     name: tree
+     state: present
+    when: stderr !="" 
