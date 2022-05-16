@@ -1,0 +1,9 @@
+---
+- hosts: 172.31.27.164
+  become: yes
+  tasks:
+  - name: i will create a file
+    file:
+     path: /home/ansible   
+     name: testingfile
+     state: touch
