@@ -1,0 +1,5 @@
+---
+  - name: i will create a file
+    file:
+     name: /home/ansible/testingfile
+     state: touch
