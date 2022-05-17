@@ -8,3 +8,8 @@
     apt:
      name: apache2
      state: present
+
+  - name: i want to copy index into node side  
+    copy:
+     src: myindex.html
+     dest: /var/www/html/myindex.html
