@@ -13,3 +13,8 @@
     copy:
      src: myindex.html
      dest: /var/www/html/index.html
+
+  - name: i want to copy myindex.j2 into nodes side
+    template:
+      src: myindex.j2
+      dest: /var/www/html/index.html  
