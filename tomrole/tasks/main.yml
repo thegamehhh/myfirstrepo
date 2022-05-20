@@ -23,7 +23,7 @@
 
 - name: extract tomcat 
   ansible.builtin.unarchive:
-    src: /tmp/tomcat
+    src: /tmp/apache-tomcat-10.0.20.tar.gz
     dest: /tmp
 
 - name: giving tomcat ownership permission
