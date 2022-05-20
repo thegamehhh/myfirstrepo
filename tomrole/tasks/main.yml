@@ -1,2 +1,62 @@
 ---
 # tasks file for tomrole
+- name: add user tomcat
+  ansible.builtin.user:
+    name: tomcat
+    home: /opt/tomcat
+    shell: /bin/false
+    
+- name: update apt
+  apt:
+   update_cache: yes
+   
+- name: install java8   
+  apt:
+   name: openjdk-8-jdk
+   state: present
+
+- name: download tomcat
+  get_url:
+   url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.20.tar.gz
+   dest: /tmp
+   force_basic_auth: yes
+
+- name: extract tomcat 
+  ansible.builtin.unarchive:
+    src: /tmp/tomcat
+    dest: /tmp
+
+- name: giving tomcat ownership permission
+  command: sudo chown -R tomcat:tomcat /opt/tomcat/
+
+- name: giving tomcat ownership permission second one
+  command: sudo chmod -R u+x /opt/tomcat/bin
+
+- name: tomcat users .xml
+  templates:
+  src: tomcatusers.j2
+  dest: /opt/tomcat/conf/tomcat-users.xml    
+
+- name: tomcat manager
+  template:
+   src: tomcatmanager.j2
+   dest: /opt/tomcat/webapps/manager/META-INF/context.xml
+
+- name: tomcat host manager
+  template: 
+   src: tomhostmanager.j2
+   dest: /opt/tomcat/webapps/host-manager/META-INF/context.xml  
+
+- name: tomcat service
+  template: 
+   src: tomcatservice.j2
+   dest: /etc/systemd/system/tomcat.service
+
+- name: tomcat restart
+  command: sudo systemctl daemon-reload
+
+- name: tomcat start 
+  command: sudo systemctl start tomcat
+
+- name: enable tomcat
+  command: sudo systemctl enable tomcat              
