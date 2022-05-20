@@ -34,8 +34,8 @@
 
 - name: tomcat users .xml
   template:
-  src: tomcatusers.j2
-  dest: /opt/tomcat/conf/tomcat-users.xml    
+   src: tomcatusers.j2
+   dest: /opt/tomcat/conf/tomcat-users.xml    
 
 - name: tomcat manager
   template:
