@@ -25,6 +25,7 @@
   ansible.builtin.unarchive:
     src: /tmp/apache-tomcat-10.0.20.tar.gz
     dest: /tmp
+    remote_src: yes
 
 - name: giving tomcat ownership permission
   command: sudo chown -R tomcat:tomcat /opt/tomcat/
