@@ -27,10 +27,10 @@
    creates: /opt/tomcat/LICENSE
 
 - name: giving tomcat ownership permission
-  command: chown -R tomcat:tomcat /opt/tomcat/
+  command: sudo chown -R tomcat:tomcat /opt/tomcat/
 
 - name: giving tomcat ownership permission second one
-  command: chmod -R u+x /opt/tomcat/bin
+  command: sudo chmod -R u+x /opt/tomcat/bin
 
 - name: tomcat users .xml
   template:
