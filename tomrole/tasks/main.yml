@@ -33,7 +33,7 @@
   command: sudo chmod -R u+x /opt/tomcat/bin
 
 - name: tomcat users .xml
-  templates:
+  template:
   src: tomcatusers.j2
   dest: /opt/tomcat/conf/tomcat-users.xml    
 
