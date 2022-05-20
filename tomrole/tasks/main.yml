@@ -23,7 +23,7 @@
 
 - name: extract tomcat 
   command:
-   cmd: tar xzvf /tmp/apache-tomcat-10*tar.gz -C /opt/tomcat --strip-components=1
+   cmd: tar xzvf /tmp/apache-tomcat-10.0.20.tar.gz -C /opt/tomcat --strip-components=1
    creates: /opt/tomcat/LICENSE
 
 - name: giving tomcat ownership permission
