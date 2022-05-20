@@ -22,10 +22,9 @@
    force_basic_auth: yes
 
 - name: extract tomcat 
-  ansible.builtin.unarchive:
-    src: /tmp/apache-tomcat-10.0.20.tar.gz
-    dest: /tmp
-    remote_src: yes
+  command:
+   cmd: sudo tar xzvf /tmp/apache-tomcat-10*tar.gz -C /opt/tomcat --strip-components=1
+   creates: /opt/tomcat/LICENSE
 
 - name: giving tomcat ownership permission
   command: chown -R tomcat:tomcat /opt/tomcat/
